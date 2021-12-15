@@ -1,0 +1,1757 @@
+Microsoft Windows [Version 10.0.19043.1348]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\saura>mongo
+MongoDB shell version v5.0.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("988dfdf5-edd1-4e04-b37d-6a968d64490a") }
+MongoDB server version: 5.0.4
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2021-11-23T07:42:08.132+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+> show dbs
+admin              0.000GB
+config             0.000GB
+local              0.000GB
+movie_application  0.000GB
+test               0.000GB
+> use movie_application
+switched to db movie_application
+> show collection
+uncaught exception: Error: don't know how to show [collection] :
+shellHelper.show@src/mongo/shell/utils.js:1211:11
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> show collections
+movie_data
+> db.movie_application.find({})
+> db.movie_data.find({})
+{ "_id" : ObjectId("619d074bbfde604662b76217"), "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)", "movie_genre" : "Drama|Musical|Romance", "production_year" : 1997, "budget" : 16819 }
+{ "_id" : ObjectId("619d074bbfde604662b76218"), "movie_name" : "Anything Else", "movie_genre" : "Comedy|Drama|Romance", "production_year" : 2003, "budget" : 11743 }
+{ "_id" : ObjectId("619d074bbfde604662b76219"), "movie_name" : "There Will Be Blood", "movie_genre" : "Drama|Western", "production_year" : 2014, "budget" : 16320 }
+{ "_id" : ObjectId("619d074bbfde604662b7621a"), "movie_name" : "Dadetown", "movie_genre" : "Drama", "production_year" : 2001, "budget" : 9738 }
+{ "_id" : ObjectId("619d074bbfde604662b7621b"), "movie_name" : "No Holds Barred", "movie_genre" : "Action", "production_year" : 2020, "budget" : 11961 }
+{ "_id" : ObjectId("619d074bbfde604662b7621c"), "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)", "movie_genre" : "Adventure|Animation|Comedy|Fantasy", "production_year" : 1991, "budget" : 9870 }
+{ "_id" : ObjectId("619d074bbfde604662b7621d"), "movie_name" : "Letzte schöne Herbsttag, Der", "movie_genre" : "Comedy|Drama|Romance", "production_year" : 2012, "budget" : 16917 }
+{ "_id" : ObjectId("619d074bbfde604662b7621e"), "movie_name" : "Daisy Kenyon", "movie_genre" : "Drama|Romance", "production_year" : 2012, "budget" : 15970 }
+{ "_id" : ObjectId("619d074bbfde604662b7621f"), "movie_name" : "Concepción Arenal, la visitadora de cárceles", "movie_genre" : "Drama", "production_year" : 2002, "budget" : 12519 }
+{ "_id" : ObjectId("619d074bbfde604662b76220"), "movie_name" : "Notebook, The", "movie_genre" : "Drama|Romance", "production_year" : 2019, "budget" : 14084 }
+{ "_id" : ObjectId("619d074bbfde604662b76221"), "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)", "movie_genre" : "Drama|Romance", "production_year" : 2012, "budget" : 12291 }
+{ "_id" : ObjectId("619d074bbfde604662b76222"), "movie_name" : "Head Office", "movie_genre" : "Comedy", "production_year" : 2002, "budget" : 10286 }
+{ "_id" : ObjectId("619d074bbfde604662b76223"), "movie_name" : "Badding", "movie_genre" : "Comedy|Drama|Musical", "production_year" : 1998, "budget" : 11738 }
+{ "_id" : ObjectId("619d074bbfde604662b76224"), "movie_name" : "Five Angles on Murder", "movie_genre" : "Mystery", "production_year" : 2005, "budget" : 19800 }
+{ "_id" : ObjectId("619d074bbfde604662b76225"), "movie_name" : "Philosophers, The (After The Dark)", "movie_genre" : "Drama|Fantasy|Sci-Fi", "production_year" : 2014, "budget" : 18393 }
+{ "_id" : ObjectId("619d074bbfde604662b76226"), "movie_name" : "Barbie in the Nutcracker", "movie_genre" : "Animation|Children|Musical", "production_year" : 2017, "budget" : 18177 }
+{ "_id" : ObjectId("619d074bbfde604662b76227"), "movie_name" : "Linsanity", "movie_genre" : "Documentary", "production_year" : 2021, "budget" : 11528 }
+{ "_id" : ObjectId("619d074bbfde604662b76228"), "movie_name" : "Girls About Town", "movie_genre" : "Comedy", "production_year" : 2018, "budget" : 10573 }
+{ "_id" : ObjectId("619d074bbfde604662b76229"), "movie_name" : "Loaded", "movie_genre" : "Drama|Thriller", "production_year" : 2003, "budget" : 11299 }
+{ "_id" : ObjectId("619d074bbfde604662b7622a"), "movie_name" : "Violette", "movie_genre" : "Drama", "production_year" : 1993, "budget" : 10739 }
+Type "it" for more
+> db.movie_data.find({"movie_name":{$eq:"Loaded"}})
+{ "_id" : ObjectId("619d074bbfde604662b76229"), "movie_name" : "Loaded", "movie_genre" : "Drama|Thriller", "production_year" : 2003, "budget" : 11299 }
+> db.movie_data.find({"movie_name":{$ne:"Loaded"}}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76217"),
+        "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)",
+        "movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 1997,
+        "budget" : 16819
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76219"),
+        "movie_name" : "There Will Be Blood",
+        "movie_genre" : "Drama|Western",
+        "production_year" : 2014,
+        "budget" : 16320
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621b"),
+        "movie_name" : "No Holds Barred",
+        "movie_genre" : "Action",
+        "production_year" : 2020,
+        "budget" : 11961
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621c"),
+        "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)",
+        "movie_genre" : "Adventure|Animation|Comedy|Fantasy",
+        "production_year" : 1991,
+        "budget" : 9870
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621d"),
+        "movie_name" : "Letzte schöne Herbsttag, Der",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 16917
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621e"),
+        "movie_name" : "Daisy Kenyon",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 15970
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76220"),
+        "movie_name" : "Notebook, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 14084
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76221"),
+        "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 12291
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76223"),
+        "movie_name" : "Badding",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 1998,
+        "budget" : 11738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76225"),
+        "movie_name" : "Philosophers, The (After The Dark)",
+        "movie_genre" : "Drama|Fantasy|Sci-Fi",
+        "production_year" : 2014,
+        "budget" : 18393
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76226"),
+        "movie_name" : "Barbie in the Nutcracker",
+        "movie_genre" : "Animation|Children|Musical",
+        "production_year" : 2017,
+        "budget" : 18177
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76227"),
+        "movie_name" : "Linsanity",
+        "movie_genre" : "Documentary",
+        "production_year" : 2021,
+        "budget" : 11528
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76228"),
+        "movie_name" : "Girls About Town",
+        "movie_genre" : "Comedy",
+        "production_year" : 2018,
+        "budget" : 10573
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622a"),
+        "movie_name" : "Violette",
+        "movie_genre" : "Drama",
+        "production_year" : 1993,
+        "budget" : 10739
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+Type "it" for more
+> db.movie_data.find({"budget":{$gte:"10000"}}).pretty()
+> db.movie_data.find({"budget":{$gte:10000}}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76217"),
+        "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)",
+        "movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 1997,
+        "budget" : 16819
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76219"),
+        "movie_name" : "There Will Be Blood",
+        "movie_genre" : "Drama|Western",
+        "production_year" : 2014,
+        "budget" : 16320
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621b"),
+        "movie_name" : "No Holds Barred",
+        "movie_genre" : "Action",
+        "production_year" : 2020,
+        "budget" : 11961
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621d"),
+        "movie_name" : "Letzte schöne Herbsttag, Der",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 16917
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621e"),
+        "movie_name" : "Daisy Kenyon",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 15970
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76220"),
+        "movie_name" : "Notebook, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 14084
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76221"),
+        "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 12291
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76223"),
+        "movie_name" : "Badding",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 1998,
+        "budget" : 11738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76225"),
+        "movie_name" : "Philosophers, The (After The Dark)",
+        "movie_genre" : "Drama|Fantasy|Sci-Fi",
+        "production_year" : 2014,
+        "budget" : 18393
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76226"),
+        "movie_name" : "Barbie in the Nutcracker",
+        "movie_genre" : "Animation|Children|Musical",
+        "production_year" : 2017,
+        "budget" : 18177
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76227"),
+        "movie_name" : "Linsanity",
+        "movie_genre" : "Documentary",
+        "production_year" : 2021,
+        "budget" : 11528
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76228"),
+        "movie_name" : "Girls About Town",
+        "movie_genre" : "Comedy",
+        "production_year" : 2018,
+        "budget" : 10573
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622a"),
+        "movie_name" : "Violette",
+        "movie_genre" : "Drama",
+        "production_year" : 1993,
+        "budget" : 10739
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622c"),
+        "movie_name" : "Rashomon (Rashômon)",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 2000,
+        "budget" : 17778
+}
+Type "it" for more
+> db.movie_data.find({"budget":{$lte:10000}}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621c"),
+        "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)",
+        "movie_genre" : "Adventure|Animation|Comedy|Fantasy",
+        "production_year" : 1991,
+        "budget" : 9870
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622d"),
+        "movie_name" : "Legend of 1900, The (a.k.a. The Legend of the Pianist on the Ocean) (Leggenda del pianista sull'oceano)",
+        "movie_genre" : "Drama",
+        "production_year" : 1992,
+        "budget" : 9926
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7624a"),
+        "movie_name" : "Russell Peters: The Green Card Tour - Live from the O2 Arena",
+        "movie_genre" : "Comedy|Documentary",
+        "production_year" : 2015,
+        "budget" : 9669
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76255"),
+        "movie_name" : "Commander Hamilton (Hamilton)",
+        "movie_genre" : "Action|Crime",
+        "production_year" : 1991,
+        "budget" : 9044
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7625a"),
+        "movie_name" : "My Wife's Relations",
+        "movie_genre" : "Comedy",
+        "production_year" : 1991,
+        "budget" : 9041
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76266"),
+        "movie_name" : "Real Cancun, The",
+        "movie_genre" : "Documentary",
+        "production_year" : 1993,
+        "budget" : 9895
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76276"),
+        "movie_name" : "Barretts of Wimpole Street, The (a.k.a. Forbidden Alliance)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 1992,
+        "budget" : 9966
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76279"),
+        "movie_name" : "Sissi: The Young Empress (Sissi - Die Junge Kaiserin)",
+        "movie_genre" : "Drama",
+        "production_year" : 2011,
+        "budget" : 9050
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7627d"),
+        "movie_name" : "Wes Craven's New Nightmare (Nightmare on Elm Street Part 7: Freddy's Finale, A)",
+        "movie_genre" : "Drama|Horror|Mystery|Thriller",
+        "production_year" : 2015,
+        "budget" : 9061
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7627e"),
+        "movie_name" : "Jungle Book",
+        "movie_genre" : "Adventure|Fantasy",
+        "production_year" : 2014,
+        "budget" : 9888
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7628f"),
+        "movie_name" : "Adrift in Tokyo (Tenten)",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2011,
+        "budget" : 9223
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762b2"),
+        "movie_name" : "Nina's Heavenly Delights",
+        "movie_genre" : "Comedy",
+        "production_year" : 2016,
+        "budget" : 9980
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762c1"),
+        "movie_name" : "Hoodoo Ann",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2000,
+        "budget" : 9648
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762c5"),
+        "movie_name" : "War",
+        "movie_genre" : "Action|Thriller",
+        "production_year" : 1990,
+        "budget" : 9732
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762ca"),
+        "movie_name" : "Vanilla Sky",
+        "movie_genre" : "Mystery|Romance|Sci-Fi|Thriller",
+        "production_year" : 2008,
+        "budget" : 9465
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762d0"),
+        "movie_name" : "Official Story, The (La historia oficial)",
+        "movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 9913
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762d5"),
+        "movie_name" : "No Direction Home: Bob Dylan",
+        "movie_genre" : "Documentary",
+        "production_year" : 2018,
+        "budget" : 9456
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762ee"),
+        "movie_name" : "It's A Wonderful World",
+        "movie_genre" : "Comedy|Crime|Romance",
+        "production_year" : 2011,
+        "budget" : 9863
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b762f3"),
+        "movie_name" : "Nutty Professor, The",
+        "movie_genre" : "Comedy|Fantasy|Romance|Sci-Fi",
+        "production_year" : 2006,
+        "budget" : 9546
+}
+Type "it" for more
+> db.movie_data.find({"production_year":{$gte:2000}},{"budget":{$gte:10000}}).pretty()
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "Expression $gte takes exactly 2 arguments. 1 were passed in.",
+        "code" : 16020,
+        "codeName" : "Location16020"
+}
+> db.movie_data.find({"production_year":{$gt:2000},"budget":{$gte:10000}}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76219"),
+        "movie_name" : "There Will Be Blood",
+        "movie_genre" : "Drama|Western",
+        "production_year" : 2014,
+        "budget" : 16320
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621b"),
+        "movie_name" : "No Holds Barred",
+        "movie_genre" : "Action",
+        "production_year" : 2020,
+        "budget" : 11961
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621d"),
+        "movie_name" : "Letzte schöne Herbsttag, Der",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 16917
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621e"),
+        "movie_name" : "Daisy Kenyon",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 15970
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76220"),
+        "movie_name" : "Notebook, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 14084
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76221"),
+        "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 12291
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76225"),
+        "movie_name" : "Philosophers, The (After The Dark)",
+        "movie_genre" : "Drama|Fantasy|Sci-Fi",
+        "production_year" : 2014,
+        "budget" : 18393
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76226"),
+        "movie_name" : "Barbie in the Nutcracker",
+        "movie_genre" : "Animation|Children|Musical",
+        "production_year" : 2017,
+        "budget" : 18177
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76227"),
+        "movie_name" : "Linsanity",
+        "movie_genre" : "Documentary",
+        "production_year" : 2021,
+        "budget" : 11528
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76228"),
+        "movie_name" : "Girls About Town",
+        "movie_genre" : "Comedy",
+        "production_year" : 2018,
+        "budget" : 10573
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622f"),
+        "movie_name" : "Ritz, The",
+        "movie_genre" : "Comedy",
+        "production_year" : 2011,
+        "budget" : 13293
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76230"),
+        "movie_name" : "Jamie Marks Is Dead",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2017,
+        "budget" : 14675
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76231"),
+        "movie_name" : "Queen of Versailles, The",
+        "movie_genre" : "Documentary",
+        "production_year" : 2012,
+        "budget" : 17787
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76234"),
+        "movie_name" : "Madagascar Skin",
+        "movie_genre" : "Romance",
+        "production_year" : 2017,
+        "budget" : 19548
+}
+Type "it" for more
+> db.movie_data.find({"production_year":{$gt:2000},"budget":{$gt:10000}}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76219"),
+        "movie_name" : "There Will Be Blood",
+        "movie_genre" : "Drama|Western",
+        "production_year" : 2014,
+        "budget" : 16320
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621b"),
+        "movie_name" : "No Holds Barred",
+        "movie_genre" : "Action",
+        "production_year" : 2020,
+        "budget" : 11961
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621d"),
+        "movie_name" : "Letzte schöne Herbsttag, Der",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 16917
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621e"),
+        "movie_name" : "Daisy Kenyon",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 15970
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76220"),
+        "movie_name" : "Notebook, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 14084
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76221"),
+        "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 12291
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76225"),
+        "movie_name" : "Philosophers, The (After The Dark)",
+        "movie_genre" : "Drama|Fantasy|Sci-Fi",
+        "production_year" : 2014,
+        "budget" : 18393
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76226"),
+        "movie_name" : "Barbie in the Nutcracker",
+        "movie_genre" : "Animation|Children|Musical",
+        "production_year" : 2017,
+        "budget" : 18177
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76227"),
+        "movie_name" : "Linsanity",
+        "movie_genre" : "Documentary",
+        "production_year" : 2021,
+        "budget" : 11528
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76228"),
+        "movie_name" : "Girls About Town",
+        "movie_genre" : "Comedy",
+        "production_year" : 2018,
+        "budget" : 10573
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622f"),
+        "movie_name" : "Ritz, The",
+        "movie_genre" : "Comedy",
+        "production_year" : 2011,
+        "budget" : 13293
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76230"),
+        "movie_name" : "Jamie Marks Is Dead",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2017,
+        "budget" : 14675
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76231"),
+        "movie_name" : "Queen of Versailles, The",
+        "movie_genre" : "Documentary",
+        "production_year" : 2012,
+        "budget" : 17787
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76234"),
+        "movie_name" : "Madagascar Skin",
+        "movie_genre" : "Romance",
+        "production_year" : 2017,
+        "budget" : 19548
+}
+Type "it" for more
+> db.movie_data.find($or[{"production_year":{$gt:2000},"budget":{$gt:10000}}]).pretty()
+uncaught exception: ReferenceError: $or is not defined :
+@(shell):1:1
+> db.movie_data.find({$or[{"production_year":{$gt:2000},"budget":{$gt:10000}}]}).pretty()
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:23
+> db.movie_data.find({$or:[{"production_year":{$gt:2000},"budget":{$gt:10000}}]}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76219"),
+        "movie_name" : "There Will Be Blood",
+        "movie_genre" : "Drama|Western",
+        "production_year" : 2014,
+        "budget" : 16320
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621b"),
+        "movie_name" : "No Holds Barred",
+        "movie_genre" : "Action",
+        "production_year" : 2020,
+        "budget" : 11961
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621d"),
+        "movie_name" : "Letzte schöne Herbsttag, Der",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 16917
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621e"),
+        "movie_name" : "Daisy Kenyon",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 15970
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76220"),
+        "movie_name" : "Notebook, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 14084
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76221"),
+        "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 12291
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76225"),
+        "movie_name" : "Philosophers, The (After The Dark)",
+        "movie_genre" : "Drama|Fantasy|Sci-Fi",
+        "production_year" : 2014,
+        "budget" : 18393
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76226"),
+        "movie_name" : "Barbie in the Nutcracker",
+        "movie_genre" : "Animation|Children|Musical",
+        "production_year" : 2017,
+        "budget" : 18177
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76227"),
+        "movie_name" : "Linsanity",
+        "movie_genre" : "Documentary",
+        "production_year" : 2021,
+        "budget" : 11528
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76228"),
+        "movie_name" : "Girls About Town",
+        "movie_genre" : "Comedy",
+        "production_year" : 2018,
+        "budget" : 10573
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622f"),
+        "movie_name" : "Ritz, The",
+        "movie_genre" : "Comedy",
+        "production_year" : 2011,
+        "budget" : 13293
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76230"),
+        "movie_name" : "Jamie Marks Is Dead",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2017,
+        "budget" : 14675
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76231"),
+        "movie_name" : "Queen of Versailles, The",
+        "movie_genre" : "Documentary",
+        "production_year" : 2012,
+        "budget" : 17787
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76234"),
+        "movie_name" : "Madagascar Skin",
+        "movie_genre" : "Romance",
+        "production_year" : 2017,
+        "budget" : 19548
+}
+Type "it" for more
+> db.movie_data.find({$not:[{"production_year":{$gt:2000},"budget":{$gt:10000}}]}).pretty()
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "unknown top level operator: $not. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.",
+        "code" : 2,
+        "codeName" : "BadValue"
+}
+> db.movie_data.find({$nor:[{"production_year":{$gt:2000},"budget":{$gt:10000}}]}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76217"),
+        "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)",
+        "movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 1997,
+        "budget" : 16819
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621c"),
+        "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)",
+        "movie_genre" : "Adventure|Animation|Comedy|Fantasy",
+        "production_year" : 1991,
+        "budget" : 9870
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76223"),
+        "movie_name" : "Badding",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 1998,
+        "budget" : 11738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622a"),
+        "movie_name" : "Violette",
+        "movie_genre" : "Drama",
+        "production_year" : 1993,
+        "budget" : 10739
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622c"),
+        "movie_name" : "Rashomon (Rashômon)",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 2000,
+        "budget" : 17778
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622d"),
+        "movie_name" : "Legend of 1900, The (a.k.a. The Legend of the Pianist on the Ocean) (Leggenda del pianista sull'oceano)",
+        "movie_genre" : "Drama",
+        "production_year" : 1992,
+        "budget" : 9926
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622e"),
+        "movie_name" : "Boy Wonder",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : 1990,
+        "budget" : 14890
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76232"),
+        "movie_name" : "Forest of Bliss",
+        "movie_genre" : "Documentary",
+        "production_year" : 1990,
+        "budget" : 14776
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76233"),
+        "movie_name" : "Mr. Deeds",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 1999,
+        "budget" : 11988
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76235"),
+        "movie_name" : "Animal Farm",
+        "movie_genre" : "Animation|Drama",
+        "production_year" : 1995,
+        "budget" : 16484
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76238"),
+        "movie_name" : "Spacehunter: Adventures in the Forbidden Zone",
+        "movie_genre" : "Sci-Fi",
+        "production_year" : 1995,
+        "budget" : 13112
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76239"),
+        "movie_name" : "Dragon Ball Z: Dead Zone (Doragon bôru Z 1: Ora no Gohan wo kaese)",
+        "movie_genre" : "Action|Adventure|Animation|Fantasy|Sci-Fi",
+        "production_year" : 1995,
+        "budget" : 13692
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7623d"),
+        "movie_name" : "Wrong Guys, The",
+        "movie_genre" : "Comedy",
+        "production_year" : 1998,
+        "budget" : 15207
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76248"),
+        "movie_name" : "Wisdom",
+        "movie_genre" : "Crime|Drama",
+        "production_year" : 1993,
+        "budget" : 18252
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7624a"),
+        "movie_name" : "Russell Peters: The Green Card Tour - Live from the O2 Arena",
+        "movie_genre" : "Comedy|Documentary",
+        "production_year" : 2015,
+        "budget" : 9669
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7624b"),
+        "movie_name" : "633 Squadron",
+        "movie_genre" : "Drama|War",
+        "production_year" : 1994,
+        "budget" : 13176
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7624d"),
+        "movie_name" : "Honeysuckle Rose (a.k.a. On the Road Again)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 1990,
+        "budget" : 19806
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7624f"),
+        "movie_name" : "Mama",
+        "movie_genre" : "Horror",
+        "production_year" : 1993,
+        "budget" : 17660
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76250"),
+        "movie_name" : "This Christmas",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 1998,
+        "budget" : 16271
+}
+Type "it" for more
+> db.movie_data.find({$or:[{"production_year":{$ne:2000},"budget":{$ne:10000}}]}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76217"),
+        "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)",
+        "movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 1997,
+        "budget" : 16819
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76219"),
+        "movie_name" : "There Will Be Blood",
+        "movie_genre" : "Drama|Western",
+        "production_year" : 2014,
+        "budget" : 16320
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621b"),
+        "movie_name" : "No Holds Barred",
+        "movie_genre" : "Action",
+        "production_year" : 2020,
+        "budget" : 11961
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621c"),
+        "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)",
+        "movie_genre" : "Adventure|Animation|Comedy|Fantasy",
+        "production_year" : 1991,
+        "budget" : 9870
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621d"),
+        "movie_name" : "Letzte schöne Herbsttag, Der",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 16917
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621e"),
+        "movie_name" : "Daisy Kenyon",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 15970
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76220"),
+        "movie_name" : "Notebook, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 14084
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76221"),
+        "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2012,
+        "budget" : 12291
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76223"),
+        "movie_name" : "Badding",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 1998,
+        "budget" : 11738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76225"),
+        "movie_name" : "Philosophers, The (After The Dark)",
+        "movie_genre" : "Drama|Fantasy|Sci-Fi",
+        "production_year" : 2014,
+        "budget" : 18393
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76226"),
+        "movie_name" : "Barbie in the Nutcracker",
+        "movie_genre" : "Animation|Children|Musical",
+        "production_year" : 2017,
+        "budget" : 18177
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76227"),
+        "movie_name" : "Linsanity",
+        "movie_genre" : "Documentary",
+        "production_year" : 2021,
+        "budget" : 11528
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76228"),
+        "movie_name" : "Girls About Town",
+        "movie_genre" : "Comedy",
+        "production_year" : 2018,
+        "budget" : 10573
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622a"),
+        "movie_name" : "Violette",
+        "movie_genre" : "Drama",
+        "production_year" : 1993,
+        "budget" : 10739
+}
+Type "it" for more
+> db.movie_data.find({"production_year":{$gt:2000},"production_year":{$lt:2010}}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76217"),
+        "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)",
+        "movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 1997,
+        "budget" : 16819
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621c"),
+        "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)",
+        "movie_genre" : "Adventure|Animation|Comedy|Fantasy",
+        "production_year" : 1991,
+        "budget" : 9870
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76223"),
+        "movie_name" : "Badding",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 1998,
+        "budget" : 11738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622a"),
+        "movie_name" : "Violette",
+        "movie_genre" : "Drama",
+        "production_year" : 1993,
+        "budget" : 10739
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622c"),
+        "movie_name" : "Rashomon (Rashômon)",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 2000,
+        "budget" : 17778
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622d"),
+        "movie_name" : "Legend of 1900, The (a.k.a. The Legend of the Pianist on the Ocean) (Leggenda del pianista sull'oceano)",
+        "movie_genre" : "Drama",
+        "production_year" : 1992,
+        "budget" : 9926
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622e"),
+        "movie_name" : "Boy Wonder",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : 1990,
+        "budget" : 14890
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76232"),
+        "movie_name" : "Forest of Bliss",
+        "movie_genre" : "Documentary",
+        "production_year" : 1990,
+        "budget" : 14776
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76233"),
+        "movie_name" : "Mr. Deeds",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 1999,
+        "budget" : 11988
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76235"),
+        "movie_name" : "Animal Farm",
+        "movie_genre" : "Animation|Drama",
+        "production_year" : 1995,
+        "budget" : 16484
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76238"),
+        "movie_name" : "Spacehunter: Adventures in the Forbidden Zone",
+        "movie_genre" : "Sci-Fi",
+        "production_year" : 1995,
+        "budget" : 13112
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76239"),
+        "movie_name" : "Dragon Ball Z: Dead Zone (Doragon bôru Z 1: Ora no Gohan wo kaese)",
+        "movie_genre" : "Action|Adventure|Animation|Fantasy|Sci-Fi",
+        "production_year" : 1995,
+        "budget" : 13692
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7623a"),
+        "movie_name" : "Strip Search",
+        "movie_genre" : "Drama",
+        "production_year" : 2005,
+        "budget" : 19911
+}
+Type "it" for more
+> db.movie_data.find({$and:[{"production_year":{$gt:2000},"production_year":{$lt:2010}}]}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76217"),
+        "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)",
+        "movie_genre" : "Drama|Musical|Romance",
+        "production_year" : 1997,
+        "budget" : 16819
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621c"),
+        "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)",
+        "movie_genre" : "Adventure|Animation|Comedy|Fantasy",
+        "production_year" : 1991,
+        "budget" : 9870
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76223"),
+        "movie_name" : "Badding",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 1998,
+        "budget" : 11738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622a"),
+        "movie_name" : "Violette",
+        "movie_genre" : "Drama",
+        "production_year" : 1993,
+        "budget" : 10739
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622c"),
+        "movie_name" : "Rashomon (Rashômon)",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 2000,
+        "budget" : 17778
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622d"),
+        "movie_name" : "Legend of 1900, The (a.k.a. The Legend of the Pianist on the Ocean) (Leggenda del pianista sull'oceano)",
+        "movie_genre" : "Drama",
+        "production_year" : 1992,
+        "budget" : 9926
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622e"),
+        "movie_name" : "Boy Wonder",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : 1990,
+        "budget" : 14890
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76232"),
+        "movie_name" : "Forest of Bliss",
+        "movie_genre" : "Documentary",
+        "production_year" : 1990,
+        "budget" : 14776
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76233"),
+        "movie_name" : "Mr. Deeds",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 1999,
+        "budget" : 11988
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76235"),
+        "movie_name" : "Animal Farm",
+        "movie_genre" : "Animation|Drama",
+        "production_year" : 1995,
+        "budget" : 16484
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76238"),
+        "movie_name" : "Spacehunter: Adventures in the Forbidden Zone",
+        "movie_genre" : "Sci-Fi",
+        "production_year" : 1995,
+        "budget" : 13112
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76239"),
+        "movie_name" : "Dragon Ball Z: Dead Zone (Doragon bôru Z 1: Ora no Gohan wo kaese)",
+        "movie_genre" : "Action|Adventure|Animation|Fantasy|Sci-Fi",
+        "production_year" : 1995,
+        "budget" : 13692
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7623a"),
+        "movie_name" : "Strip Search",
+        "movie_genre" : "Drama",
+        "production_year" : 2005,
+        "budget" : 19911
+}
+Type "it" for more
+>  db.movie_data.find({$and:[{"production_year":{$not:{$lt:2000}}},{"production_year":{$not:{$gt:2010}}}]}).pretty()
+{
+        "_id" : ObjectId("619d074bbfde604662b76218"),
+        "movie_name" : "Anything Else",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2003,
+        "budget" : 11743
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621a"),
+        "movie_name" : "Dadetown",
+        "movie_genre" : "Drama",
+        "production_year" : 2001,
+        "budget" : 9738
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7621f"),
+        "movie_name" : "Concepción Arenal, la visitadora de cárceles",
+        "movie_genre" : "Drama",
+        "production_year" : 2002,
+        "budget" : 12519
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76222"),
+        "movie_name" : "Head Office",
+        "movie_genre" : "Comedy",
+        "production_year" : 2002,
+        "budget" : 10286
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76224"),
+        "movie_name" : "Five Angles on Murder",
+        "movie_genre" : "Mystery",
+        "production_year" : 2005,
+        "budget" : 19800
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76229"),
+        "movie_name" : "Loaded",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2003,
+        "budget" : 11299
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622b"),
+        "movie_name" : "Caesar Must Die (Cesare deve morire)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 14394
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7622c"),
+        "movie_name" : "Rashomon (Rashômon)",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 2000,
+        "budget" : 17778
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7623a"),
+        "movie_name" : "Strip Search",
+        "movie_genre" : "Drama",
+        "production_year" : 2005,
+        "budget" : 19911
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7623b"),
+        "movie_name" : "Relative Fear",
+        "movie_genre" : "Horror|Thriller",
+        "production_year" : 2004,
+        "budget" : 18705
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7623c"),
+        "movie_name" : "Bertie and Elizabeth",
+        "movie_genre" : "Drama",
+        "production_year" : 2008,
+        "budget" : 14510
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76240"),
+        "movie_name" : "Hometown Legend",
+        "movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 13354
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76242"),
+        "movie_name" : "Ernest Goes to Africa",
+        "movie_genre" : "Comedy",
+        "production_year" : 2009,
+        "budget" : 13313
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76243"),
+        "movie_name" : "Buffalo '66 (a.k.a. Buffalo 66)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2007,
+        "budget" : 19238
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76244"),
+        "movie_name" : "Egyptian, The",
+        "movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 19886
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76245"),
+        "movie_name" : "Rain People, The",
+        "movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 14066
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76247"),
+        "movie_name" : "Black Dragons",
+        "movie_genre" : "Mystery|Thriller|War",
+        "production_year" : 2010,
+        "budget" : 12259
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76249"),
+        "movie_name" : "Three Comrades",
+        "movie_genre" : "Drama",
+        "production_year" : 2004,
+        "budget" : 18200
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b7624e"),
+        "movie_name" : "Boom!",
+        "movie_genre" : "Drama",
+        "production_year" : 2008,
+        "budget" : 19419
+}
+{
+        "_id" : ObjectId("619d074bbfde604662b76251"),
+        "movie_name" : "Battle of Britain",
+        "movie_genre" : "War",
+        "production_year" : 2010,
+        "budget" : 18293
+}
+Type "it" for more
+>  db.movie_data.find({}).sort({"production_year":1}).sort({"movie_name":1})
+{ "_id" : ObjectId("619d074bbfde604662b762be"), "movie_name" : "10 minutes (10 minuta)", "movie_genre" : "Drama|War", "production_year" : 2014, "budget" : 12462 }
+{ "_id" : ObjectId("619d074bbfde604662b763dc"), "movie_name" : "13 Frightened Girls! (Candy Web, The)", "movie_genre" : "Adventure|Comedy|Thriller", "production_year" : 2003, "budget" : 17196 }
+{ "_id" : ObjectId("619d074bbfde604662b76297"), "movie_name" : "16 Blocks", "movie_genre" : "Crime|Thriller", "production_year" : 2011, "budget" : 16755 }
+{ "_id" : ObjectId("619d074bbfde604662b76272"), "movie_name" : "21-87", "movie_genre" : "Documentary", "production_year" : 2018, "budget" : 14681 }
+{ "_id" : ObjectId("619d074bbfde604662b7624b"), "movie_name" : "633 Squadron", "movie_genre" : "Drama|War", "production_year" : 1994, "budget" : 13176 }
+{ "_id" : ObjectId("619d074bbfde604662b76363"), "movie_name" : "Aberdeen", "movie_genre" : "Drama", "production_year" : 1997, "budget" : 16317 }
+{ "_id" : ObjectId("619d074bbfde604662b76314"), "movie_name" : "Acadia Acadia?!? (L'acadie, l'Acadie)", "movie_genre" : "Documentary", "production_year" : 2010, "budget" : 10924 }
+{ "_id" : ObjectId("619d074bbfde604662b763d0"), "movie_name" : "Addicted to Plastic", "movie_genre" : "Documentary", "production_year" : 2011, "budget" : 15561 }
+{ "_id" : ObjectId("619d074bbfde604662b762cd"), "movie_name" : "Adios Sabata", "movie_genre" : "Action|War|Western", "production_year" : 2003, "budget" : 19761 }
+{ "_id" : ObjectId("619d074bbfde604662b7628f"), "movie_name" : "Adrift in Tokyo (Tenten)", "movie_genre" : "Comedy|Drama", "production_year" : 2011, "budget" : 9223 }
+{ "_id" : ObjectId("619d074bbfde604662b762f2"), "movie_name" : "Adventures of Sharkboy and Lavagirl 3-D, The", "movie_genre" : "Action|Adventure|Children|Fantasy", "production_year" : 2017, "budget" : 12272 }
+{ "_id" : ObjectId("619d074bbfde604662b76361"), "movie_name" : "Agronomist, The", "movie_genre" : "Documentary", "production_year" : 2003, "budget" : 17550 }
+{ "_id" : ObjectId("619d074bbfde604662b763cd"), "movie_name" : "Ah of Life, The", "movie_genre" : "Drama|Romance|Sci-Fi", "production_year" : 1993, "budget" : 9882 }
+{ "_id" : ObjectId("619d074bbfde604662b763ee"), "movie_name" : "Always for Pleasure", "movie_genre" : "(no genres listed)", "production_year" : 2019, "budget" : 16307 }
+{ "_id" : ObjectId("619d074bbfde604662b76395"), "movie_name" : "Ambush Trail", "movie_genre" : "Action|Western", "production_year" : 2018, "budget" : 10108 }
+{ "_id" : ObjectId("619d074bbfde604662b7639b"), "movie_name" : "Analyze This", "movie_genre" : "Comedy", "production_year" : 2003, "budget" : 12242 }
+{ "_id" : ObjectId("619d074bbfde604662b763e9"), "movie_name" : "And Nobody Weeps for Me (Und keiner weint mir nach)", "movie_genre" : "Drama|Romance", "production_year" : 2007, "budget" : 14492 }
+{ "_id" : ObjectId("619d074bbfde604662b762ba"), "movie_name" : "Angel Baby", "movie_genre" : "Drama", "production_year" : 2016, "budget" : 17941 }
+{ "_id" : ObjectId("619d074bbfde604662b76235"), "movie_name" : "Animal Farm", "movie_genre" : "Animation|Drama", "production_year" : 1995, "budget" : 16484 }
+{ "_id" : ObjectId("619d074bbfde604662b762fa"), "movie_name" : "Anthropophagus: The Grim Reaper (Antropophagus) (Man Beast) (Savage Island, The) (Zombie's Rage, The)", "movie_genre" : "Horror", "production_year" : 2010, "budget" : 11842 }
+Type "it" for more
+> db.movie_data.find({}).sort({"production_year":1,"movie_name":1})
+{ "_id" : ObjectId("619d074bbfde604662b763bb"), "movie_name" : "Basket Case 2", "movie_genre" : "Comedy|Horror", "production_year" : 1990, "budget" : 13207 }
+{ "_id" : ObjectId("619d074bbfde604662b7622e"), "movie_name" : "Boy Wonder", "movie_genre" : "Action|Crime|Drama", "production_year" : 1990, "budget" : 14890 }
+{ "_id" : ObjectId("619d074bbfde604662b763d3"), "movie_name" : "CSNY Déjà Vu", "movie_genre" : "Documentary", "production_year" : 1990, "budget" : 10814 }
+{ "_id" : ObjectId("619d074bbfde604662b7636b"), "movie_name" : "Cartouche", "movie_genre" : "Action|Adventure|Comedy|Drama", "production_year" : 1990, "budget" : 14956 }
+{ "_id" : ObjectId("619d074bbfde604662b762cc"), "movie_name" : "Clash of the Titans", "movie_genre" : "Action|Adventure|Drama|Fantasy", "production_year" : 1990, "budget" : 11641 }
+{ "_id" : ObjectId("619d074bbfde604662b763c6"), "movie_name" : "Electric Boogaloo: The Wild, Untold Story of Cannon Films", "movie_genre" : "Comedy|Documentary", "production_year" : 1990, "budget" : 9052 }
+{ "_id" : ObjectId("619d074bbfde604662b7637e"), "movie_name" : "Finding North", "movie_genre" : "Comedy|Drama|Romance", "production_year" : 1990, "budget" : 9960 }
+{ "_id" : ObjectId("619d074bbfde604662b76232"), "movie_name" : "Forest of Bliss", "movie_genre" : "Documentary", "production_year" : 1990, "budget" : 14776 }
+{ "_id" : ObjectId("619d074bbfde604662b7639e"), "movie_name" : "Frankenweenie", "movie_genre" : "Animation|Comedy|Horror|IMAX", "production_year" : 1990, "budget" : 16429 }
+{ "_id" : ObjectId("619d074bbfde604662b763b0"), "movie_name" : "Good Earth, The", "movie_genre" : "Drama", "production_year" : 1990, "budget" : 16404 }
+{ "_id" : ObjectId("619d074bbfde604662b7624d"), "movie_name" : "Honeysuckle Rose (a.k.a. On the Road Again)", "movie_genre" : "Drama|Romance", "production_year" : 1990, "budget" : 19806 }
+{ "_id" : ObjectId("619d074bbfde604662b76407"), "movie_name" : "House of Frankenstein", "movie_genre" : "Horror", "production_year" : 1990, "budget" : 10206 }
+{ "_id" : ObjectId("619d074bbfde604662b762ec"), "movie_name" : "Minion, The", "movie_genre" : "Action|Fantasy|Horror", "production_year" : 1990, "budget" : 19036 }
+{ "_id" : ObjectId("619d074bbfde604662b763a6"), "movie_name" : "Moonlight Mile", "movie_genre" : "Drama|Romance", "production_year" : 1990, "budget" : 9712 }
+{ "_id" : ObjectId("619d074bbfde604662b763cb"), "movie_name" : "Rollercoaster", "movie_genre" : "Drama|Thriller", "production_year" : 1990, "budget" : 12264 }
+{ "_id" : ObjectId("619d074bbfde604662b762ff"), "movie_name" : "Secuestrados (Kidnapped)", "movie_genre" : "Horror|Thriller", "production_year" : 1990, "budget" : 15597 }
+{ "_id" : ObjectId("619d074bbfde604662b76346"), "movie_name" : "Sgt. Bilko", "movie_genre" : "Comedy", "production_year" : 1990, "budget" : 12361 }
+{ "_id" : ObjectId("619d074bbfde604662b763fe"), "movie_name" : "Tarnation", "movie_genre" : "Documentary", "production_year" : 1990, "budget" : 12244 }
+{ "_id" : ObjectId("619d074bbfde604662b763e7"), "movie_name" : "United States of Secrets (Part One): The Program", "movie_genre" : "Documentary", "production_year" : 1990, "budget" : 14241 }
+{ "_id" : ObjectId("619d074bbfde604662b76353"), "movie_name" : "Veronika Decides to Die", "movie_genre" : "Drama|Romance", "production_year" : 1990, "budget" : 17770 }
+Type "it" for more
+> db.movie_data.find({}).skip(10).limit(15)
+{ "_id" : ObjectId("619d074bbfde604662b76221"), "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)", "movie_genre" : "Drama|Romance", "production_year" : 2012, "budget" : 12291 }
+{ "_id" : ObjectId("619d074bbfde604662b76222"), "movie_name" : "Head Office", "movie_genre" : "Comedy", "production_year" : 2002, "budget" : 10286 }
+{ "_id" : ObjectId("619d074bbfde604662b76223"), "movie_name" : "Badding", "movie_genre" : "Comedy|Drama|Musical", "production_year" : 1998, "budget" : 11738 }
+{ "_id" : ObjectId("619d074bbfde604662b76224"), "movie_name" : "Five Angles on Murder", "movie_genre" : "Mystery", "production_year" : 2005, "budget" : 19800 }
+{ "_id" : ObjectId("619d074bbfde604662b76225"), "movie_name" : "Philosophers, The (After The Dark)", "movie_genre" : "Drama|Fantasy|Sci-Fi", "production_year" : 2014, "budget" : 18393 }
+{ "_id" : ObjectId("619d074bbfde604662b76226"), "movie_name" : "Barbie in the Nutcracker", "movie_genre" : "Animation|Children|Musical", "production_year" : 2017, "budget" : 18177 }
+{ "_id" : ObjectId("619d074bbfde604662b76227"), "movie_name" : "Linsanity", "movie_genre" : "Documentary", "production_year" : 2021, "budget" : 11528 }
+{ "_id" : ObjectId("619d074bbfde604662b76228"), "movie_name" : "Girls About Town", "movie_genre" : "Comedy", "production_year" : 2018, "budget" : 10573 }
+{ "_id" : ObjectId("619d074bbfde604662b76229"), "movie_name" : "Loaded", "movie_genre" : "Drama|Thriller", "production_year" : 2003, "budget" : 11299 }
+{ "_id" : ObjectId("619d074bbfde604662b7622a"), "movie_name" : "Violette", "movie_genre" : "Drama", "production_year" : 1993, "budget" : 10739 }
+{ "_id" : ObjectId("619d074bbfde604662b7622b"), "movie_name" : "Caesar Must Die (Cesare deve morire)", "movie_genre" : "Drama", "production_year" : 2007, "budget" : 14394 }
+{ "_id" : ObjectId("619d074bbfde604662b7622c"), "movie_name" : "Rashomon (Rashômon)", "movie_genre" : "Crime|Drama|Mystery", "production_year" : 2000, "budget" : 17778 }
+{ "_id" : ObjectId("619d074bbfde604662b7622d"), "movie_name" : "Legend of 1900, The (a.k.a. The Legend of the Pianist on the Ocean) (Leggenda del pianista sull'oceano)", "movie_genre" : "Drama", "production_year" : 1992, "budget" : 9926 }
+{ "_id" : ObjectId("619d074bbfde604662b7622e"), "movie_name" : "Boy Wonder", "movie_genre" : "Action|Crime|Drama", "production_year" : 1990, "budget" : 14890 }
+{ "_id" : ObjectId("619d074bbfde604662b7622f"), "movie_name" : "Ritz, The", "movie_genre" : "Comedy", "production_year" : 2011, "budget" : 13293 }
+> db.movie_data.find({}).skip(10).limit(5)
+{ "_id" : ObjectId("619d074bbfde604662b76221"), "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)", "movie_genre" : "Drama|Romance", "production_year" : 2012, "budget" : 12291 }
+{ "_id" : ObjectId("619d074bbfde604662b76222"), "movie_name" : "Head Office", "movie_genre" : "Comedy", "production_year" : 2002, "budget" : 10286 }
+{ "_id" : ObjectId("619d074bbfde604662b76223"), "movie_name" : "Badding", "movie_genre" : "Comedy|Drama|Musical", "production_year" : 1998, "budget" : 11738 }
+{ "_id" : ObjectId("619d074bbfde604662b76224"), "movie_name" : "Five Angles on Murder", "movie_genre" : "Mystery", "production_year" : 2005, "budget" : 19800 }
+{ "_id" : ObjectId("619d074bbfde604662b76225"), "movie_name" : "Philosophers, The (After The Dark)", "movie_genre" : "Drama|Fantasy|Sci-Fi", "production_year" : 2014, "budget" : 18393 }
+> db.movie_data.remove({"movie_genre"}).limit(10)
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:35
+> db.movie_data.updateMany({},{$unset:{"movie_genre":1}}).limit(10)
+uncaught exception: TypeError: db.movie_data.updateMany(...).limit is not a function :
+@(shell):1:1
+> db.movie_data.updateMany({},{$unset:{"movie_genre":1}},10)
+{ "acknowledged" : true, "matchedCount" : 500, "modifiedCount" : 0 }
+> db.movie_data.updateMany({},{$unset:{"movie_genre":1}})
+{ "acknowledged" : true, "matchedCount" : 500, "modifiedCount" : 0 }
+> db.movie_data.find({})
+{ "_id" : ObjectId("619d074bbfde604662b76217"), "movie_name" : "Beauty and the Bastard (Tyttö sinä olet tähti)", "production_year" : 1997, "budget" : 16819 }
+{ "_id" : ObjectId("619d074bbfde604662b76218"), "movie_name" : "Anything Else", "production_year" : 2003, "budget" : 11743 }
+{ "_id" : ObjectId("619d074bbfde604662b76219"), "movie_name" : "There Will Be Blood", "production_year" : 2014, "budget" : 16320 }
+{ "_id" : ObjectId("619d074bbfde604662b7621a"), "movie_name" : "Dadetown", "production_year" : 2001, "budget" : 9738 }
+{ "_id" : ObjectId("619d074bbfde604662b7621b"), "movie_name" : "No Holds Barred", "production_year" : 2020, "budget" : 11961 }
+{ "_id" : ObjectId("619d074bbfde604662b7621c"), "movie_name" : "Thief and the Cobbler, The (a.k.a. Arabian Knight)", "production_year" : 1991, "budget" : 9870 }
+{ "_id" : ObjectId("619d074bbfde604662b7621d"), "movie_name" : "Letzte schöne Herbsttag, Der", "production_year" : 2012, "budget" : 16917 }
+{ "_id" : ObjectId("619d074bbfde604662b7621e"), "movie_name" : "Daisy Kenyon", "production_year" : 2012, "budget" : 15970 }
+{ "_id" : ObjectId("619d074bbfde604662b7621f"), "movie_name" : "Concepción Arenal, la visitadora de cárceles", "production_year" : 2002, "budget" : 12519 }
+{ "_id" : ObjectId("619d074bbfde604662b76220"), "movie_name" : "Notebook, The", "production_year" : 2019, "budget" : 14084 }
+{ "_id" : ObjectId("619d074bbfde604662b76221"), "movie_name" : "Saga of Gosta Berling, The (Gösta Berlings saga)", "production_year" : 2012, "budget" : 12291 }
+{ "_id" : ObjectId("619d074bbfde604662b76222"), "movie_name" : "Head Office", "production_year" : 2002, "budget" : 10286 }
+{ "_id" : ObjectId("619d074bbfde604662b76223"), "movie_name" : "Badding", "production_year" : 1998, "budget" : 11738 }
+{ "_id" : ObjectId("619d074bbfde604662b76224"), "movie_name" : "Five Angles on Murder", "production_year" : 2005, "budget" : 19800 }
+{ "_id" : ObjectId("619d074bbfde604662b76225"), "movie_name" : "Philosophers, The (After The Dark)", "production_year" : 2014, "budget" : 18393 }
+{ "_id" : ObjectId("619d074bbfde604662b76226"), "movie_name" : "Barbie in the Nutcracker", "production_year" : 2017, "budget" : 18177 }
+{ "_id" : ObjectId("619d074bbfde604662b76227"), "movie_name" : "Linsanity", "production_year" : 2021, "budget" : 11528 }
+{ "_id" : ObjectId("619d074bbfde604662b76228"), "movie_name" : "Girls About Town", "production_year" : 2018, "budget" : 10573 }
+{ "_id" : ObjectId("619d074bbfde604662b76229"), "movie_name" : "Loaded", "production_year" : 2003, "budget" : 11299 }
+{ "_id" : ObjectId("619d074bbfde604662b7622a"), "movie_name" : "Violette", "production_year" : 1993, "budget" : 10739 }
+Type "it" for more
+>
